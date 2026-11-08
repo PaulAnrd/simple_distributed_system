@@ -1,0 +1,7 @@
+/target
+**/*.rs.bk
+.DS_Store
+
+# local dev state (dev-convenience dirs, see doc/architecture.md)
+/data/
+/log/

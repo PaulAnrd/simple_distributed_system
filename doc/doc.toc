@@ -1,0 +1,121 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Purpose}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Non-goals}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Scope of this document}{2}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Design principles}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Delegate to proven tools}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Small, complete increments}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}One binary; the role is configuration}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Pure logic kept apart from input and output}{4}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}No dependency or state before it is needed}{4}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Architecture}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Crates}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Modules of clusterd-core}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Runtime structure}{5}{subsection.3.3}%
+\contentsline {paragraph}{Head.}{5}{section*.2}%
+\contentsline {paragraph}{Worker.}{5}{section*.3}%
+\contentsline {paragraph}{Command-line program.}{7}{section*.4}%
+\contentsline {subsection}{\numberline {3.4}Concurrency model}{7}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}State and persistence}{7}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Identity and trust}{7}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Trust model}{7}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Certificates}{7}{subsection.4.2}%
+\contentsline {paragraph}{Why every machine has the same name.}{7}{section*.5}%
+\contentsline {paragraph}{How a certificate is issued.}{8}{section*.6}%
+\contentsline {subsection}{\numberline {4.3}Three identifiers}{8}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Key files and privileges}{9}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Untrusted input}{9}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Wire protocol}{9}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Transport and framing}{9}{subsection.5.1}%
+\contentsline {paragraph}{Why not gRPC or QUIC.}{10}{section*.7}%
+\contentsline {paragraph}{Why the worker opens the connection.}{10}{section*.8}%
+\contentsline {subsection}{\numberline {5.2}Connection life cycle}{10}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Message reference}{11}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Versioning}{11}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Local control protocol}{11}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Failure detection and recovery}{13}{section.6}%
+\contentsline {subsection}{\numberline {6.1}The up/down rule}{13}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Detection latency and tolerance}{13}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Reconnection}{13}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Restart of the head}{14}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Resource figures}{14}{section.7}%
+\contentsline {section}{\numberline {8}Operations}{14}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Command-line interface}{14}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Data directory}{15}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Logs}{16}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Local smoke test}{16}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Deploying on real machines}{16}{subsection.8.5}%
+\contentsline {paragraph}{Building the binary.}{16}{section*.9}%
+\contentsline {paragraph}{1. Copy the source to the build machine.}{16}{section*.10}%
+\contentsline {paragraph}{2. Install Rust and a C toolchain on the build machine.}{17}{section*.11}%
+\contentsline {paragraph}{3. Build the release binary.}{17}{section*.12}%
+\contentsline {paragraph}{4. Copy the binary to every other machine.}{17}{section*.13}%
+\contentsline {paragraph}{5. Set up the head.}{17}{section*.14}%
+\contentsline {paragraph}{6. Issue a certificate for each worker.}{17}{section*.15}%
+\contentsline {paragraph}{7. Set up each worker.}{17}{section*.16}%
+\contentsline {paragraph}{8. Start the agents.}{18}{section*.17}%
+\contentsline {paragraph}{9. Check the pool from the head.}{18}{section*.18}%
+\contentsline {paragraph}{10. Check down detection.}{18}{section*.19}%
+\contentsline {subsection}{\numberline {8.6}Troubleshooting}{18}{subsection.8.6}%
+\contentsline {section}{\numberline {9}Verification}{19}{section.9}%
+\contentsline {section}{\numberline {10}Limitations}{19}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Scope of Phase 1}{20}{subsection.10.1}%
+\contentsline {paragraph}{Monitoring only.}{20}{section*.20}%
+\contentsline {paragraph}{Manual onboarding.}{20}{section*.21}%
+\contentsline {paragraph}{No storage pooling.}{20}{section*.22}%
+\contentsline {paragraph}{No service management and no orderly shutdown.}{20}{section*.23}%
+\contentsline {paragraph}{One run per machine, by design.}{20}{section*.24}%
+\contentsline {paragraph}{Small scale, one local network.}{20}{section*.25}%
+\contentsline {subsection}{\numberline {10.2}Availability and fault tolerance}{20}{subsection.10.2}%
+\contentsline {paragraph}{The head is a single point of failure.}{20}{section*.26}%
+\contentsline {paragraph}{The head's address must be fixed and numeric.}{20}{section*.27}%
+\contentsline {paragraph}{Workers are slow to notice a head machine that disappears.}{21}{section*.28}%
+\contentsline {paragraph}{The head never closes a silent connection.}{21}{section*.29}%
+\contentsline {paragraph}{The node table never forgets.}{21}{section*.30}%
+\contentsline {paragraph}{Duplicate identities are not detected.}{21}{section*.31}%
+\contentsline {paragraph}{Failure detection is timeout-only and binary.}{21}{section*.32}%
+\contentsline {subsection}{\numberline {10.3}Security}{21}{subsection.10.3}%
+\contentsline {paragraph}{Machine identity is self-declared.}{21}{section*.33}%
+\contentsline {paragraph}{Head and worker certificates are interchangeable.}{22}{section*.34}%
+\contentsline {paragraph}{No revocation and no expiry.}{22}{section*.35}%
+\contentsline {paragraph}{The CA key is online and unprotected beyond file permissions.}{22}{section*.36}%
+\contentsline {paragraph}{Re-running init overwrites an identity without warning.}{22}{section*.37}%
+\contentsline {paragraph}{The listener has no limits.}{22}{section*.38}%
+\contentsline {paragraph}{Reported figures are trusted as given.}{23}{section*.39}%
+\contentsline {paragraph}{Local socket permissions are implicit.}{23}{section*.40}%
+\contentsline {paragraph}{Not audited.}{23}{section*.41}%
+\contentsline {subsection}{\numberline {10.4}Protocol evolution}{23}{subsection.10.4}%
+\contentsline {paragraph}{Upgrades must be done all at once.}{23}{section*.42}%
+\contentsline {paragraph}{``Additive'' changes are compatible in one direction only.}{23}{section*.43}%
+\contentsline {paragraph}{The channel is one-way today.}{23}{section*.44}%
+\contentsline {subsection}{\numberline {10.5}Accuracy of the resource figures}{23}{subsection.10.5}%
+\contentsline {paragraph}{The first sample after each connection is wrong.}{23}{section*.45}%
+\contentsline {paragraph}{One CPU percentage is not comparable between machines.}{24}{section*.46}%
+\contentsline {paragraph}{Disk figure.}{24}{section*.47}%
+\contentsline {paragraph}{Timestamps.}{24}{section*.48}%
+\contentsline {paragraph}{Linux only.}{24}{section*.49}%
+\contentsline {subsection}{\numberline {10.6}Operability}{24}{subsection.10.6}%
+\contentsline {paragraph}{Logs are not where people look.}{24}{section*.50}%
+\contentsline {paragraph}{Misconfiguration does not fail fast.}{24}{section*.51}%
+\contentsline {paragraph}{status works only on the head.}{24}{section*.52}%
+\contentsline {paragraph}{Configuration values are not range-checked.}{24}{section*.53}%
+\contentsline {paragraph}{The head reads its certificates once.}{24}{section*.54}%
+\contentsline {paragraph}{The binary is not static.}{25}{section*.55}%
+\contentsline {paragraph}{No health or metrics interface.}{25}{section*.56}%
+\contentsline {subsection}{\numberline {10.7}Testing}{25}{subsection.10.7}%
+\contentsline {paragraph}{Fixed ports.}{25}{section*.57}%
+\contentsline {paragraph}{Untested paths.}{25}{section*.58}%
+\contentsline {paragraph}{Timing-dependent scripts.}{25}{section*.59}%
+\contentsline {paragraph}{No continuous integration.}{25}{section*.60}%
+\contentsline {section}{\numberline {11}Known defects}{25}{section.11}%
+\contentsline {paragraph}{D1. Disk space is reported as zero with a relative data directory.}{25}{section*.61}%
+\contentsline {paragraph}{D2. A second agent on the same data directory breaks status for the first.}{26}{section*.62}%
+\contentsline {paragraph}{D3. Agent logs drop the cause of errors.}{26}{section*.63}%
+\contentsline {paragraph}{D4. A long data-directory path silently disables status.}{26}{section*.64}%
+\contentsline {paragraph}{D5. A failed accept stops the head.}{27}{section*.65}%
+\contentsline {paragraph}{D6. A heartbeat interval of zero panics.}{27}{section*.66}%
+\contentsline {paragraph}{D7. Key-file permissions are not enforced when a file already exists.}{27}{section*.67}%
+\contentsline {section}{\numberline {12}Roadmap}{27}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Phase 2: job submission and scheduling}{27}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Phase 3: automated join}{28}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Phase 4: storage orchestration}{28}{subsection.12.3}%
